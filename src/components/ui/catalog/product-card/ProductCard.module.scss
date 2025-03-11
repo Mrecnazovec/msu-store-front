@@ -1,0 +1,29 @@
+.card {
+	@apply bg-white;
+
+	img {
+		@apply rounded-lg;
+	}
+
+	> .title {
+		@apply mt-4 font-semibold text-gray-700 line-clamp-1;
+	}
+
+	> .category {
+		@apply mt-1 text-sm text-gray-500;
+	}
+
+	> .color_wrapper {
+		@apply flex items-center gap-3 justify-center mb-4;
+
+		div {
+			@apply rounded-full size-10;
+		}
+	}
+
+	> .price {
+		> p {
+			@apply mt-1 font-medium text-sm text-gray-900;
+		}
+	}
+}

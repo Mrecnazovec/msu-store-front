@@ -1,0 +1,29 @@
+.header_menu {
+	@apply flex items-center sm:gap-x-2 ml-auto;
+
+	.avatar {
+		@apply rounded-full;
+	}
+
+	.icon {
+		@apply size-4 mr-2;
+	}
+}
+
+.menu {
+	@apply flex flex-col;
+
+	.avatar {
+		@apply rounded-full;
+	}
+
+	.icon {
+		@apply size-4 mr-2;
+	}
+
+	a {
+		> button {
+			@apply w-full;
+		}
+	}
+}
