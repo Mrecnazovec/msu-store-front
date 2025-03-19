@@ -8,6 +8,7 @@ class UserService {
 		const accessToken = Cookies.get('accessToken')
 
 		if (!accessToken) {
+			await new Promise((resolve) => setTimeout(resolve, 1500))
 			return null
 		}
 
