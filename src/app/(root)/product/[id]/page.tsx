@@ -4,6 +4,7 @@ import { productService } from '@/services/product.service'
 import type { Metadata } from 'next'
 import { Product } from './Product'
 import { notFound } from 'next/navigation'
+import { PUBLIC_URL } from '@/config/url.config'
 
 export const revalidate = 60
 
@@ -24,7 +25,6 @@ export async function generateStaticParams() {
 async function getProducts(id: string) {
 	try {
 		const product = await productService.getById(id)
-
 		const similarProducts = await productService.getSimilar(id)
 
 		return { product, similarProducts }
@@ -35,6 +35,24 @@ async function getProducts(id: string) {
 
 export async function generateMetadata(params: { params: paramsType }): Promise<Metadata> {
 	const { product } = await getProducts((await params.params).id)
+
+	const schemaData = {
+		'@context': 'https://schema.org/',
+		'@type': 'Product',
+		name: product.title,
+		image: product.colors[0].images.map((img) => img.url),
+		description: product.description,
+		sku: product.id,
+		brand: {
+			'@type': 'Brand',
+			name: 'MSU STORE',
+		},
+		offers: {
+			'@type': 'Offer',
+			url: PUBLIC_URL.product((await params.params).id),
+			availability: 'https://schema.org/InStock',
+		},
+	}
 
 	return {
 		title: product.title,
@@ -48,6 +66,9 @@ export async function generateMetadata(params: { params: paramsType }): Promise<
 					alt: product.title,
 				},
 			],
+		},
+		other: {
+			'script:ld+json': JSON.stringify(schemaData),
 		},
 	}
 }
