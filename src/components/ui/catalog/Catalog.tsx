@@ -12,7 +12,11 @@ export function Catalog({ products, title, description, link, linkTitle }: ICata
 					<h1>{title}</h1>
 					{description && <p>{description}</p>}
 				</div>
-				{link && linkTitle && <Link className={styles.link} href={link}>{linkTitle}</Link>}
+				{link && linkTitle && (
+					<Link className={styles.link} href={link}>
+						{linkTitle}
+					</Link>
+				)}
 			</div>
 
 			<div className={styles.catalog}>

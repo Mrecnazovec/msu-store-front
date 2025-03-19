@@ -31,7 +31,7 @@
 				@apply duration-300 border rounded-lg overflow-hidden;
 
 				> .size {
-					@apply px-2;
+					@apply px-2 flex justify-center items-center text-center;
 				}
 			}
 		}

@@ -80,7 +80,7 @@ export function ProductInfo({ product, currentColor, setCurrentColor }: ProductI
 						<button
 							key={index}
 							onClick={() => handleSizeChange(index)}
-							className={cn(styles.item, index === currentSize ? 'border-primary' : 'border-transparent')}
+							className={cn(styles.item, index === currentSize ? 'border-primary' : 'border-transparent', 'flex justify-center items-center')}
 							title={item}
 						>
 							<div className={styles.size}>{item}</div>

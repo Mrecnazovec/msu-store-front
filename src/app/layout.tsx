@@ -5,6 +5,9 @@ import { Providers } from './providers'
 import NextTopLoader from 'nextjs-toploader'
 import Script from 'next/script'
 
+import { ReactLenis } from '@/lib/lenis'
+import { GeoProvider } from '@/context/GeoContext'
+
 export const metadata: Metadata = {
 	title: { absolute: SITE_NAME, template: `%s | ${SITE_NAME}` },
 	description: SITE_DESCRIPTION,
@@ -69,7 +72,11 @@ export default function RootLayout({
 			</head>
 			<body>
 				<NextTopLoader color='#1D00C3' template='<div class="bar" role="bar"><div class="peg"></div></div>' />
-				<Providers>{children}</Providers>
+				<ReactLenis root>
+					<GeoProvider>
+						<Providers>{children}</Providers>
+					</GeoProvider>
+				</ReactLenis>
 			</body>
 		</html>
 	)

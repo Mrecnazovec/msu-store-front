@@ -25,9 +25,9 @@ export function ProductReviews({ product }: ProductReviewsProps) {
 				<h1>{getReviewWordWithEnding(product.reviews.length)}</h1>
 				{user && (
 					<ReviewModal storeId={product.storeId}>
-						<Button>
-							<Plus />
-							Добавить отзыв
+						<Button className='p-2 sm:px-4'>
+							<Plus/>
+							<p className='hidden sm:block'>Добавить отзыв</p>
 						</Button>
 					</ReviewModal>
 				)}

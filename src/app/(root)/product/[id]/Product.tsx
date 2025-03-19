@@ -10,6 +10,8 @@ import { ProductInfo } from './product-info/ProductInfo'
 import { ProductReviews } from './product-reviews/ProductReviews'
 import { useState } from 'react'
 import { useSearchParams } from 'next/navigation'
+import { useIp } from '@/context/GeoContext'
+import { useGeo } from '@/hooks/queries/geo/useGeo'
 
 interface ProductProps {
 	initialProduct: IProduct
@@ -28,7 +30,6 @@ export function Product({ initialProduct, similarProducts, id = '' }: ProductPro
 		enabled: !!id,
 	})
 	const [currentColor, setCurrentColor] = useState(color || 0)
-
 
 	return (
 		<div className={styles.product_page}>
