@@ -7,10 +7,10 @@ class UserService {
 	async getProfile() {
 		const accessToken = Cookies.get('accessToken')
 
-		if (!accessToken) {
-			await new Promise((resolve) => setTimeout(resolve, 1500))
-			return null
-		}
+		// if (!accessToken) {
+		// 	await new Promise((resolve) => setTimeout(resolve, 1500))
+		// 	return null
+		// }
 
 		const { data } = await axiosWithAuth<IUser>({
 			url: API_URL.users('/profile'),
