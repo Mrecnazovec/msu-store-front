@@ -5,12 +5,13 @@ import { IUser, IUserInput, IUserRole } from '../shared/types/user.interface'
 
 class UserService {
 	async getProfile() {
+		await new Promise((resolve) => setTimeout(resolve, 1000))
+
 		const accessToken = Cookies.get('accessToken')
 
-		// if (!accessToken) {
-		// 	await new Promise((resolve) => setTimeout(resolve, 1500))
-		// 	return null
-		// }
+		if (!accessToken) {
+			return null
+		}
 
 		const { data } = await axiosWithAuth<IUser>({
 			url: API_URL.users('/profile'),
