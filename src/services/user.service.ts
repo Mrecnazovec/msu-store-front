@@ -1,9 +1,16 @@
+import Cookies from 'js-cookie'
 import { axiosWithAuth } from '../api/api.interceptors'
 import { API_URL } from '../config/api.config'
 import { IUser, IUserInput, IUserRole } from '../shared/types/user.interface'
 
 class UserService {
 	async getProfile() {
+		const accessToken = Cookies.get('accessToken')
+
+		if (!accessToken) {
+			return null
+		}
+
 		const { data } = await axiosWithAuth<IUser>({
 			url: API_URL.users('/profile'),
 			method: 'GET',
