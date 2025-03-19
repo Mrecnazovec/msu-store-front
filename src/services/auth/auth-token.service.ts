@@ -19,5 +19,7 @@ export const saveTokenStorage = (accessToken: string) => {
 }
 
 export const removeFromStorage = () => {
-	Cookies.remove('accessToken')
+	Cookies.remove(EnumTokens.ACCESS_TOKEN, {
+		domain: process.env.APP_DOMAIN
+	})
 }
