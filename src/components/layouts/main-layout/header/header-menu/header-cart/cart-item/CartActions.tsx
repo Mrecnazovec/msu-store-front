@@ -4,14 +4,14 @@ import { ICartItem } from '@/shared/types/cart.interface'
 
 import styles from '../HeaderCart.module.scss'
 import { Button } from '@/components/ui/Button'
-import { Minus, Plus } from 'lucide-react'
+import { Minus, Plus, Trash } from 'lucide-react'
 
 interface ICartActions {
 	item: ICartItem
 }
 
 export function CartActions({ item }: ICartActions) {
-	const { changeQuantity } = useActions()
+	const { changeQuantity, removeFromCard } = useActions()
 
 	const { items } = useCart()
 
@@ -24,8 +24,12 @@ export function CartActions({ item }: ICartActions) {
 			</Button>
 			<input disabled readOnly value={quantity} />
 
-			<Button onClick={() => changeQuantity({ id: item.id, type: 'plus' })} variant='ghost' size='icon'>
+			<Button className='mr-3' onClick={() => changeQuantity({ id: item.id, type: 'plus' })} variant='ghost' size='icon'>
 				<Plus />
+			</Button>
+
+			<Button size='icon' onClick={() => removeFromCard({ id: item.id })}>
+				<Trash />
 			</Button>
 		</div>
 	)
