@@ -7,7 +7,6 @@ import { useCart } from '@/hooks/useCart'
 import { CartItem } from './cart-item/CartItem'
 import { useGeo } from '@/hooks/queries/geo/useGeo'
 import { formatPrice } from '@/utils/string/format-price'
-import { VisuallyHidden } from '@radix-ui/react-visually-hidden' // 👈 для скрытия заголовка, если нужно
 import { Loader } from '@/components/ui/Loader'
 import Link from 'next/link'
 import { PUBLIC_URL } from '@/config/url.config'
@@ -28,7 +27,6 @@ export function HeaderCart() {
 				</Button>
 			</SheetTrigger>
 			<SheetContent className={styles.cart}>
-				{/* Добавляем DialogTitle */}
 				<SheetTitle>
 					<Heading title='Корзина товаров' className='text-xl' />
 				</SheetTitle>
