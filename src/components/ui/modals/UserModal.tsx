@@ -1,8 +1,7 @@
-
 import { PropsWithChildren, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '../Dialog'
-import { Form, FormControl, FormField, FormItem, FormMessage } from '../form-elements/Form'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../form-elements/Form'
 import { Button } from '../Button'
 import { useUpdateUser } from '@/hooks/queries/users/useUpdateUser'
 import { IUserInput } from '@/shared/types/user.interface'
@@ -46,6 +45,7 @@ export function UserModal({ children }: PropsWithChildren) {
 							rules={{ required: 'Имя обязательно' }}
 							render={({ field }) => (
 								<FormItem>
+									<FormLabel>Имя</FormLabel>
 									<FormControl>
 										<Input {...field} placeholder='Имя' disabled={isLoadingUpdate} />
 									</FormControl>
@@ -59,6 +59,7 @@ export function UserModal({ children }: PropsWithChildren) {
 							rules={{ required: 'Номер телефона' }}
 							render={({ field }) => (
 								<FormItem>
+									<FormLabel>Номер телефона</FormLabel>
 									<FormControl>
 										<Input {...field} type='tel' placeholder='Номер телефона' disabled={isLoadingUpdate} />
 									</FormControl>
@@ -77,6 +78,7 @@ export function UserModal({ children }: PropsWithChildren) {
 							}}
 							render={({ field }) => (
 								<FormItem>
+									<FormLabel>Телеграм юзер</FormLabel>
 									<FormControl>
 										<Input placeholder='Телеграм юзер' type='text' disabled={isLoadingUpdate} {...field} />
 									</FormControl>
