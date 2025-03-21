@@ -7,7 +7,7 @@ import toast from 'react-hot-toast'
 export const useUpdateUser = () => {
 	const queryClient = useQueryClient()
 
-	const { mutate: updateUser, isPending: isLoadingUpdate } = useMutation({
+	const { mutateAsync: updateUser, isPending: isLoadingUpdate } = useMutation({
 		mutationKey: ['update user'],
 		mutationFn: (data: IUserInput) => userService.update(data),
 		onSuccess() {
