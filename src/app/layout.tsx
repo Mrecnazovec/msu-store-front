@@ -24,6 +24,15 @@ export default function RootLayout({
 		<html lang='ru'>
 			<head>
 				<meta name='p:domain_verify' content='65adbd7f4d33c93de5031501e501ff09' />
+				<meta property='og:title' content={SITE_NAME} />
+				<meta property='og:description' content={SITE_DESCRIPTION} />
+				<meta property='og:image' content='/images/logo.svg' />
+				<meta property='og:url' content='https:/msu-store.com' />
+				<meta property='og:type' content='website' />
+				<meta name='twitter:card' content='summary_large_image' />
+				<meta name='twitter:title' content={SITE_NAME} />
+				<meta name='twitter:description' content={SITE_DESCRIPTION} />
+				<meta name='twitter:image' content='/images/logo.svg' />
 
 				{/* Google Analytics */}
 				<Script async src='https://www.googletagmanager.com/gtag/js?id=G-FC0FZ413SE'></Script>
@@ -37,6 +46,18 @@ export default function RootLayout({
               gtag('js', new Date());
               gtag('config', 'G-FC0FZ413SE');
             `,
+					}}
+				/>
+				<Script
+					type='application/ld+json'
+					dangerouslySetInnerHTML={{
+						__html: JSON.stringify({
+							'@context': 'https://schema.org',
+							'@type': 'Organization',
+							name: SITE_NAME,
+							url: 'https://msu-store.com',
+							logo: 'https://msu-store.com/images/logo.svg',
+						}),
 					}}
 				/>
 

@@ -1,0 +1,11 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /store
+Disallow: /dashboard
+
+# Host
+Host: https://msu-store.com
+
+# Sitemaps
+Sitemap: https://msu-store.com/sitemap.xml
