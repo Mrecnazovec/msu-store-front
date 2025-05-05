@@ -24,8 +24,6 @@ export function CategoryForm({ category }: CategoryFormProps) {
 	const { updateCategory, isLoadingUpdate } = useUpdateCategory()
 	const { deleteCategory, isLoadingDelete } = useDeleteCategory()
 
-	console.log(category)
-
 	const title = category ? 'Изменить данные' : 'Создать категорию'
 	const description = category ? ' Изменить данные о категории' : 'Добавить новую категорию в магазин'
 	const action = category ? 'Сохранить' : 'Создать'
@@ -70,7 +68,6 @@ export function CategoryForm({ category }: CategoryFormProps) {
 			<Form {...form}>
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<div className={styles.fields}>
-						{/* Название категории */}
 						<FormField
 							control={control}
 							name='title'
@@ -86,7 +83,6 @@ export function CategoryForm({ category }: CategoryFormProps) {
 							)}
 						/>
 					</div>
-					{/* Описание категории */}
 					<FormField
 						control={form.control}
 						name='description'

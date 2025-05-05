@@ -33,7 +33,7 @@ export default function RootLayout({
 				<meta name='twitter:title' content={SITE_NAME} />
 				<meta name='twitter:description' content={SITE_DESCRIPTION} />
 				<meta name='twitter:image' content='/images/logo.svg' />
-
+				<meta name="mailru-domain" content="cL5H7yXQnGg7XYE8" />
 				{/* Google Analytics */}
 				<Script async src='https://www.googletagmanager.com/gtag/js?id=G-FC0FZ413SE'></Script>
 				<Script
