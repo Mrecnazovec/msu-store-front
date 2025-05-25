@@ -41,5 +41,5 @@ yarn-error.log*
 next-env.d.ts
 
 public/sitemap-0.xml
-public/robot.tsx
+public/robots.tsx
 public/sitemap.xml
