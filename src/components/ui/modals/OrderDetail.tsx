@@ -21,11 +21,11 @@ export function OrderDetail({ data }: OrderDetailProps) {
 					<DialogTitle className='mb-2 text-2xl'>Подробности заказа</DialogTitle>
 					<DialogDescription className='text-xl'>Товары:</DialogDescription>
 					{data?.map((item, index) => (
-						<div key={item.id}>
+						<div key={item.id ? item.id : index}>
 							<DialogDescription className='text-lg'>
 								{index + 1}){' '}
-								<Link className='text-primary hover:opacity-75 transition-all' href={PUBLIC_URL.product(item.product.id)}>
-									{item.product.title}
+								<Link className='text-primary hover:opacity-75 transition-all' href={PUBLIC_URL.product(item.product ? item.product.id : '')}>
+									{item.product ? item.product.title : 'Удалённый продукт'}
 								</Link>{' '}
 								x {item.quantity} шт. Размер: {item.size} Цвет: {item.color} по {item.price}{' '}
 							</DialogDescription>
