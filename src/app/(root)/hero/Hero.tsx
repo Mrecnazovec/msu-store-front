@@ -9,7 +9,8 @@ export function Hero() {
 	return (
 		<div className={styles.section}>
 			<h1 className={styles.heading}>
-				Для людей Московского университета - <span>всё в одном месте</span>
+				Для людей Московского университета
+				 {/* - <span>всё в одном месте</span> */}
 			</h1>
 			<p className={styles.description}>{SITE_DESCRIPTION}</p>
 			<Link href={PUBLIC_URL.explorer()}>
