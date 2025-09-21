@@ -11,6 +11,8 @@ export const revalidate = 60
 async function getProducts() {
 	const data = (await productService.getMostPopular()).slice(0, 6)
 
+	if (!data) return []
+
 	return data
 }
 

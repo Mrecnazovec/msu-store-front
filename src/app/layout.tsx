@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.scss'
-import { SITE_AUTHOR, SITE_DESCRIPTION, SITE_KEYWORDS, SITE_NAME } from '@/constants/seo.constants'
+import { NO_INDEX_PAGE, SITE_AUTHOR, SITE_DESCRIPTION, SITE_KEYWORDS, SITE_NAME } from '@/constants/seo.constants'
 import { Providers } from './providers'
 import NextTopLoader from 'nextjs-toploader'
 import Script from 'next/script'
@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 	description: SITE_DESCRIPTION,
 	keywords: SITE_KEYWORDS,
 	authors: SITE_AUTHOR,
+	...NO_INDEX_PAGE,
 }
 
 export default function RootLayout({
@@ -33,7 +34,7 @@ export default function RootLayout({
 				<meta name='twitter:title' content={SITE_NAME} />
 				<meta name='twitter:description' content={SITE_DESCRIPTION} />
 				<meta name='twitter:image' content='/images/logo.svg' />
-				<meta name="mailru-domain" content="cL5H7yXQnGg7XYE8" />
+				<meta name='mailru-domain' content='cL5H7yXQnGg7XYE8' />
 				{/* Google Analytics */}
 				<Script async src='https://www.googletagmanager.com/gtag/js?id=G-FC0FZ413SE'></Script>
 				<Script
@@ -95,6 +96,11 @@ export default function RootLayout({
 				<NextTopLoader color='#1D00C3' template='<div class="bar" role="bar"><div class="peg"></div></div>' />
 				<ReactLenis root>
 					<GeoProvider>
+						<div className='overflow-hidden whitespace-nowrap border p-2 bg-gray-100'>
+							<p className='inline-block animate-marquee text-red-500'>
+								Работа проекта временно приостановлена
+							</p>
+						</div>
 						<Providers>{children}</Providers>
 					</GeoProvider>
 				</ReactLenis>

@@ -159,7 +159,14 @@ export function Order() {
 								{isLoading ? <Loader size='sm' /> : <>Цена: {formatPrice(total - (total * discount.value) / 100, geo)}</>}
 							</div>
 
-							<Button disabled={isLoading}>Оформить заказ</Button>
+							<div className='cursor-not-allowed'>
+								<Button
+									// disabled={isLoading}
+									disabled
+								>
+									Оформить заказ
+								</Button>
+							</div>
 						</form>
 						<DiscountModal setDiscount={setDiscount}>
 							<Button type='button' variant='secondary'>
